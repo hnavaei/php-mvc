@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    direction: rtl;
+    font-family: "B Koodak";
+    min-height: 100vh;
+    text-align: right;
+}
+
+.rtl-grid {
+    direction: rtl;
+}
+
+figure {
+    text-align: center;
+    cursor: pointer;
+    background: #030c17;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+figure img {
+    width: 100%;
+    min-height: 100%;
+    display: block;
+    opacity: .9;
+    transition: 0.35s;
+
+}
+
+figure figcaption {
+    padding: .5rem;
+    backface-visibility: hidden;
+    color: white;
+}
+
+figcaption::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: 0.35s;
+    transform: scale3d(1.4, 1.4, 1);
+}
+
+figcaption a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-indent: 200%;
+}
+
+figcaption h2 {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translateY(-50%) scale(1.5);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: 0.35s;
+
+}
+
+figure:hover figcaption::before,
+figure:hover h2 {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+}
+
+figure:hover figcaption {
+    background-color: rgba(58, 52, 42, 0);
+}
+
+figure:hover img {
+    opacity: 0.4;
+}
